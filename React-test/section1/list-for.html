@@ -19,14 +19,36 @@
   <body>
     <div id="app"></div>
 
-    <!-- reactでは（JSX）babelで変換する必要がある -->
-    <!-- JSXでclassを使うときはclassNameとし、キャメルケースで記述する -->
     <script type="text/babel">
       const container = document.getElementById('app');
       const root = ReactDOM.createRoot(container);
-      // const root = ReactDOM.createRoot(container);
-      const element = <p>hello react</p>;
+
+      const items = [
+        {
+          id: 1,
+          name: 'メロンパン',
+        },
+        {
+          id: 2,
+          name: 'チョコパン',
+        },
+        {
+          id: 3,
+          name: 'クリームパン',
+        },
+      ];
+
+      const element = (
+        <ul>
+          {items.map((item) => {
+            return <li key={item.id}>{item.name}</li>;
+          })}
+        </ul>
+      );
+
       root.render(element);
+
+      // const element = <p>hello react</p>;
     </script>
   </body>
 </html>

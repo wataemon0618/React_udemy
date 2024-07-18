@@ -19,13 +19,15 @@
   <body>
     <div id="app"></div>
 
-    <!-- reactでは（JSX）babelで変換する必要がある -->
-    <!-- JSXでclassを使うときはclassNameとし、キャメルケースで記述する -->
     <script type="text/babel">
       const container = document.getElementById('app');
       const root = ReactDOM.createRoot(container);
-      // const root = ReactDOM.createRoot(container);
-      const element = <p>hello react</p>;
+
+      const isShow = true;
+
+      const element = (
+        <div style={{ display: isShow ? 'initial' : 'none' }}>表示</div> //initialは表示、noneは非表示
+      );
       root.render(element);
     </script>
   </body>
